@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عالم الرواية - الصفحة الرسمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f141d;
+            --card-bg: #1a2232;
+            --accent-color: #c9a050; /* لون ذهبي راقي */
+            --text-color: #e2e8f0;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, .quote {
+            font-family: 'Amiri', serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, rgba(15,20,29,0.6) 0%, var(--bg-color) 100%), 
+                        radial-gradient(circle at center, #2c1f3d 0%, var(--bg-color) 70%);
+            border-bottom: 1px solid rgba(201, 160, 80, 0.2);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--accent-color);
+            color: #0f141d;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 160, 80, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(201, 160, 80, 0.5);
+            background-color: #dfb562;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        .about-book {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        .quote-box {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            border-top: 1px solid var(--accent-color);
+            border-bottom: 1px solid var(--accent-color);
+            background-color: rgba(201, 160, 80, 0.03);
+        }
+
+        .quote-box p {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .character-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 160, 80, 0.4);
+        }
+
+        .character-card h3 {
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .character-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- قسم الترحيب والعنوان -->
+    <header>
+        <h1>عنوان الرواية هنا</h1>
+        <p>عبارة تشويقية قصيرة تصف جو الرواية وتثير فضول القارئ لقراءتها.</p>
+        <a href="#about" class="cta-btn">اكتشف الرواية</a>
+    </header>
+
+    <div class="container">
+
+        <!-- اقتباس من الرواية -->
+        <div class="quote-box">
+            <p>«اكتب هنا أحد أجمل وأعمق الاقتباسات من روايتك...»</p>
+        </div>
+
+        <!-- عن الرواية -->
+        <section id="about">
+            <h2 class="section-title">عن الرواية</h2>
+            <div class="about-book">
+                <p>
+                    اكتب هنا ملخصاً تشويقياً لروايتك دون كشف النهاية. تحدث عن الصراع الرئيسي، البيئة والأجواء التي تدور فيها الأحداث، والمشاعر التي سيعيشها القارئ بين صفحات هذا العمل الأدبي.
+                </p>
+            </div>
+        </section>
+
+        <!-- أبطال الرواية -->
+        <section>
+            <h2 class="section-title">شخصيات الرواية</h2>
+            <div class="characters-grid">
+                
+                <div class="character-card">
+                    <h3>الشخصية الأولى</h3>
+                    <p>وصف قصير للشخصية الأولى ودورها في الأحداث والصراع الذي تخوضه.</p>
+                </div>
+
+                <div class="character-card">
+                    <h3>الشخصية الثانية</h3>
+                    <p>وصف قصير للشخصية الثانية وطبيعة علاقتها بالأحداث أو الشخصيات الأخرى.</p>
+                </div>
+
+                <div class="character-card">
+                    <h3>الشخصية الثالثة</h3>
+                    <p>وصف قصير للشخصية الثالثة وتأثيرها على مجريات القصة.</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 | موقع الرواية الرسمية</p>
+    </footer>
+
+</body>
+</html>
