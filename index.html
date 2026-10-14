@@ -12,6 +12,7 @@
             --accent-color: #c9a050; /* لون ذهبي راقي */
             --text-color: #e2e8f0;
             --text-secondary: #94a3b8;
+            --btn-secondary: #2563eb;
         }
 
         * {
@@ -53,23 +54,45 @@
             margin: 0 auto 30px auto;
         }
 
-        .cta-btn {
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 12px 35px;
-            background-color: var(--accent-color);
-            color: #0f141d;
+            padding: 12px 30px;
             font-weight: bold;
             font-size: 1.1rem;
             text-decoration: none;
             border-radius: 30px;
             transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #0f141d;
             box-shadow: 0 4px 15px rgba(201, 160, 80, 0.3);
         }
 
-        .cta-btn:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(201, 160, 80, 0.5);
             background-color: #dfb562;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #0f141d;
+            transform: translateY(-3px);
         }
 
         .container {
@@ -153,6 +176,34 @@
             font-size: 0.95rem;
         }
 
+        /* قسم الشراء والتحميل */
+        .action-section {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(201, 160, 80, 0.3);
+        }
+
+        .action-section h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .action-section p {
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .store-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         footer {
             text-align: center;
             padding: 30px;
@@ -168,7 +219,11 @@
     <header>
         <h1>عنوان الرواية هنا</h1>
         <p>عبارة تشويقية قصيرة تصف جو الرواية وتثير فضول القارئ لقراءتها.</p>
-        <a href="#about" class="cta-btn">اكتشف الرواية</a>
+        
+        <div class="header-buttons">
+            <a href="#sample" class="btn btn-outline">📖 اقرأ الفصل الأول مجاناً</a>
+            <a href="#buy" class="btn btn-primary">🛒 احصل على الرواية الآن</a>
+        </div>
     </header>
 
     <div class="container">
@@ -208,6 +263,20 @@
                     <p>وصف قصير للشخصية الثالثة وتأثيرها على مجريات القصة.</p>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- قسم التحميل والشراء -->
+        <section id="buy" class="action-section">
+            <h3>جاهز للانغماس في عالم الرواية؟</h3>
+            <p>يمكنك تحميل العينة المجانية للبدء بالقراءة فوراً، أو طلب النسخة الكاملة الآن.</p>
+            
+            <div class="store-links">
+                <!-- استبدل الرابط بخط الـ # برابط ملف الـ PDF الخاص بالفصل الأول -->
+                <a href="#" target="_blank" class="btn btn-outline" id="sample">📄 تحميل الفصل الأول (PDF)</a>
+                
+                <!-- استبدل الرابط بخط الـ # برابط الشراء (مثل رابط واتساب، المعرض، أو متجر إلكتروني) -->
+                <a href="https://wa.me/20XXXXXXXXXX" target="_blank" class="btn btn-primary">💬 طلب الرواية عبر الواتساب</a>
             </div>
         </section>
 
