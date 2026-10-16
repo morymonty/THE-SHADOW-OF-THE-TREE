@@ -413,7 +413,34 @@
                 <section id="about">
             <div class="section-header">
                 </div>
-            <a/><h2> href="#sample" class="btn btn-outline">من الرواية ></h2><a/>
+          <h2 class="oval-border">من الرواية</h2>
+
+<style>
+  .oval-border {
+    /* جعل العنصر يتلاءم مع حجم النص فقط */
+    display: inline-block; 
+    
+    /* محاذاة النص في المنتصف داخل البرواز */
+    text-align: center; 
+    
+    /* جعل الحواف بيضاوية (50% تعطي الشكل البيضاوي) */
+    border-radius: 50%; 
+    
+    /* تصميم البرواز: السُمك، النوع (صلب)، واللون */
+    border: 2px solid #333; 
+    
+    /* مسافات داخلية (أعلى/أسفل ويمين/يسار) لإعطاء شكل بيضاوي متناسق */
+    padding: 15px 40px; 
+    
+    /* هامش لضمان التوسيط إذا كان العنصر داخل الحاوية */
+    margin: 20px auto; 
+  }
+
+  /* لتوسيط العنصر بالكامل في منتصف الصفحة أو الحاوية */
+  body {
+    text-align: center;
+  }
+</style>
                
             </div>
             <div class="about-card">
