@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصفحة الرسمية للرواية - تأليف الكيلاني</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة التأثيرات عند التمرير AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
     <style>
         :root {
             --bg-color: #0b1a26;
@@ -28,6 +32,7 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, .quote-box p {
@@ -143,6 +148,7 @@
             border: 2px solid rgba(212, 175, 55, 0.4);
             transform: perspective(1000px) rotateY(-5deg);
             transition: transform 0.4s ease;
+            cursor: pointer;
         }
 
         .book-cover:hover {
@@ -267,6 +273,12 @@
             border-radius: 8px;
             margin-bottom: 15px;
             border: 1px solid rgba(212, 175, 55, 0.2);
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .character-img:hover {
+            opacity: 0.9;
         }
 
         .character-card h3 {
@@ -331,10 +343,65 @@
             font-size: 0.95rem;
         }
 
+        /* نافذة تكبير الصور (Lightbox Modal) */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            border: 2px solid var(--accent-gold);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .lightbox-modal.show .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: var(--accent-gold);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            user-select: none;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 2.2rem; }
             .hero-container { text-align: center; }
             .actions-flex { justify-content: center !important; }
+            .lightbox-close { top: 15px; right: 20px; font-size: 35px; }
         }
     </style>
 </head>
@@ -343,14 +410,14 @@
     <!-- شريط الإعلان العلوي -->
     <div class="top-banner">
         <span>🔥 عرض لفترة محدودة</span>
-        احصل على نسختك من الرواية واستمتع بخصم 50% 🔥
+        احصل على نسختك من الرواية واستمتع بخصم 50%🔥
         <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-outline">🛒 اطلب الرواية الآن</a>
     </div>
 
     <!-- القسم الرئيسي (الهيدر) -->
     <header class="hero-section">
         <div class="hero-container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-left">
                 <div class="badge">🔥 الرواية الأكثر تشويقاً وجاذبية</div>
 
                 <h1>عالم آخر ينتظرك… <span>اكتشف الحكاية</span></h1>
@@ -368,8 +435,8 @@
                 </div>
             </div>
 
-            <div class="hero-image-box">
-                <img src="book-cover.jpg.png" alt="غلاف الرواية" class="book-cover">
+            <div class="hero-image-box" data-aos="fade-right">
+                <img src="book-cover.jpg.png" alt="غلاف الرواية" class="book-cover zoomable-img">
             </div>
         </div>
     </header>
@@ -377,26 +444,26 @@
     <div class="container">
 
         <!-- اقتباسات مختارة -->
-        <div class="quote-box">
+        <div class="quote-box" data-aos="fade-up">
             <p>"حين تطأ عيناك السطور الأولى في هذه الرواية، لستَ مجرّد قارئٍ يعبر حكايةً عابرة، بل أنت غريبٌ يَلِجُ عتبات حياةٍ لم تحسب يومًا أنك ستعبر ممراتها... ويقين القول، أن خلف ظلال الكلمات واقعًا نابضًا؛ فمعظم هذه الأحداث قد جُبلت من طين الحقيقة، وما كانت يومًا محض أوهامٍ أو ضربًا من خيال."</p>
         </div>
 
-        <div class="quote-box">
+        <div class="quote-box" data-aos="fade-up">
             <p>ماذا لو كانت هناك حياة أخرى تنتظرك في ظلّ شجرة؟<br><br>
             لم يكن خالد يعلم أن بذرةً خضراء صغيرة ستقوده إلى عالمٍ موازٍ، حيث يصبح الماضي حاضرًا، وتتخذ الحياة شكلًا لم يكن يومًا من اختياراته.<br><br>
             بين عالمين، وحياتين، وذكريات تتحدى المنطق، يخوض خالد رحلةً غامضة بحثًا عن الحقيقة، ليكتشف أن العبور إلى حياة أخرى قد يكون أسهل بكثير من العودة إلى حياته الأولى.</p>
         </div>
 
-        <div class="quote-box">
+        <div class="quote-box" data-aos="fade-up">
             <p>"غلبني النوم كفريسةٍ أضناها التعب، ثم استيقظتُ على بكاء طفلتي 'ليلى'. نظرتُ إليها فتوقفت أنفاسي؛ ليلى هنا طفلة في مهدها، بينما ليلى هناك عروسٌ متألقة! حملتُها وضممتُها إلى صدري أداعبها لساعتين حتى نامت. نظرتُ إليها وتمتمتُ بشجن: ماذا لو أبحرت سفينتي دون عودة؟ ما أصعب أن تكون آخرُ ما بيننا نظراتٍ تنتزع القلب انتزاعًا.."</p>
         </div>
 
-        <div class="quote-box">
+        <div class="quote-box" data-aos="fade-up">
             <p>"في لُجّة الطريق، التفتتْ إليّ وسن وقالت بنبرة يملؤها الوجل: أنت عارف يا خالد ده معناه إيه؟ معناه إن خالد القديم عمره دلوقتي مئة وثلاثة وثلاثون سنة على الأقل... يعني لا هو، ولا عياله، ولا أهله موجودين في الدنيا دي."</p>
         </div>
 
         <!-- عن الرواية -->
-        <section id="about">
+        <section id="about" data-aos="fade-up">
             <div class="section-header">
                 <h2>عن الرواية</h2>
             </div>
@@ -409,70 +476,106 @@
         </section>
 
         <!-- أبطال الرواية -->
-        <section>
+        <section data-aos="fade-up">
             <div class="section-header">
                 <h2>شخصيات الرواية الرئيسية</h2>
             </div>
             <div class="characters-grid">
-                <div class="character-card">
-                    <img src="khalid.jpg.png" alt="خالد" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="khalid.jpg.png" alt="خالد" class="character-img zoomable-img">
                     <h3>خالد</h3>
                 </div>
-                <div class="character-card">
-                    <img src="wasn.jpg.png" alt="وسن" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="wasn.jpg.png" alt="وسن" class="character-img zoomable-img">
                     <h3>وسن</h3>
                 </div>
-                <div class="character-card">
-                    <img src="nawara.jpg.jpg" alt="نوارا" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="nawara.jpg.jpg" alt="نوارا" class="character-img zoomable-img">
                     <h3>نوارا</h3>
                 </div>
             </div>
         </section>
 
         <!-- نص من الرواية -->
-        <section>
+        <section data-aos="fade-up">
             <div class="section-header">
                 <h2>من الرواية</h2>
             </div>
             <div class="about-card">
-                <p>
-                    لا بد أنك تدري أننا ضيوفُ محطة... ربما التقينا... وربما افترقنا... ربما في يومٍ ما... حين أغادرُ عكسَ اتجاه عقارب الساعة... وتغادرُ أنت معها... ستقول عني: إني نحرتُ الحياة بيدي، ولم أكن أجيدُ الابتسامَ في وجه الإصرار!<br><br>
-                    نعم... أعترفُ بذلك، فهجراني لك أصبحَ ضمن هواجسي... ولأنك تنتشرُ من خلالي، فأنت تقرأني ككتابٍ مفتوح... ولأني لا أرغبُ في أن تهرب مني، سأعلنُ عليك القطيعة، وأنا أوقنُ أن نسيانك يستعصي عليّ... بل هو ضربٌ من ضروب المستحيل!<br><br>
-                    أنت وحدك من فتحَ أبواب ذاتي... الواحدة تلو الأخرى... دون عناء... وبين يديك وحدك، ارتجفَ قلبي حدّ الذوبان... وبأناملك حُلّت رموزه، وتحطم غموضي؛ لتجعلني أعيش في أبياتٍ لا منتهية من الشعر... حتى أصبحَ تغلغلك في دواخلي أبرزَ ملامح وجودك في حياتي!
-                </p>
+                <div class="checkout-box" style="text-align: right; background: var(--card-bg);" data-aos="fade-up">
+                    <h3 style="font-size: 1.50rem; font-weight: normal; font-family: 'Amiri', sans-serif; line-height: 2.2;">
+                        لا بد أنك تدري أننا ضيوفُ محطة... ربما التقينا... وربما افترقنا... ربما في يومٍ ما...<br>
+                        حين أغادرُ عكسَ اتجاه عقارب الساعة... وتغادرُ أنت معها... ستقول عني: إني نحرتُ الحياة بيدي، ولم أكن أجيدُ الابتسامَ في وجه الإصرار!<br><br>
+                        نعم... أعترفُ بذلك، فهجراني لك أصبحَ ضمن هواجسي...<br>
+                        ولأنك تنتشرُ من خلالي، فأنت تقرأني ككتابٍ مفتوح...<br>
+                        ولأني لا أرغبُ في أن تهرب مني، سأعلنُ عليك القطيعة، وأنا أوقنُ أن نسيانك يستعصي عليّ... بل هو ضربٌ من ضروب المستحيل!<br><br>
+                        أنت وحدك من فتحَ أبواب ذاتي... الواحدة تلو الأخرى... دون عناء...<br>
+                        وبين يديك وحدك، ارتجفَ قلبي حدّ الذوبان...<br>
+                        وبأناملك حُلّت رموزه، وتحطم غموضي؛ لتجعلني أعيش في أبياتٍ لا منتهية من الشعر... حتى أصبحَ تغلغلك في دواخلي أبرزَ ملامح وجودك في حياتي!<br><br>
+                        روّضتَ أوهامي الجامحة... وكسرتَ سطوة أساطيري العاتية...<br>
+                        وخلقتَ في كياني ما لم تستطع غاياتُ أرواح البشر كلها أن تستجمعه...<br>
+                        وصوتك... آهٍ من صوتك! ذاك اللون الفضي المميز من لمسات الحنان في ذاكرتي المشروخة... أعانيه بإدمان...<br><br>
+                        كان لا بد أن أغادر وأنا أدّعي الصمت، وأترك شهقاتي الخرساء تتساقط مني... علّك تلتقتها...<br>
+                        ولعلنا في يومٍ ما نلتقي صدفة... وعندها أسترجعها منك... لتأخذ أنت كل ما منحتني إياه من أزمنةٍ لا تُنسى!
+                    </h3>
+                </div>
             </div>
         </section>
 
         <!-- مشاهد من الرواية -->
-        <section>
+        <section data-aos="fade-up">
             <div class="section-header">
                 <h2>مشاهد من الرواية</h2>
             </div>
             <div class="characters-grid">
-                <div class="character-card">
-                    <img src="8.png" alt="مشهد من الرواية" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="8.png" alt="مشهد من الرواية" class="character-img zoomable-img">
                 </div>
-                <div class="character-card">
-                    <img src="2.png" alt="مشهد من الرواية" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="2.png" alt="مشهد من الرواية" class="character-img zoomable-img">
                 </div>
-                <div class="character-card">
-                    <img src="1.png" alt="مشهد من الرواية" class="character-img">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="1.png" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="E.jpg" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="F.jpg" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="G.png" alt="مشهد من الرواية" class="character-img zoomable-img">
                 </div>
             </div>
         </section>
 
         <!-- اقتباس إضافي -->
-        <div class="checkout-box" style="text-align: right; background: var(--card-bg);">
-            <h3 style="font-size: 1.25rem; font-weight: normal; font-family: 'Tajawal', sans-serif;">
+        <div class="checkout-box" style="text-align: right; background: var(--card-bg);" data-aos="fade-up">
+            <h3 style="font-size: 1.50rem; font-weight: normal; font-family: 'Amiri', sans-serif; line-height: 2.2;">
                 "بقدرِ ما كانت تجرفُني الرغبةُ في إبصارِ وجهِ أسرتي بعد غيابِ عشرين عامًا، بقدرِ ما كان الرعبُ ينبضُ في عروقي من هذا اللقاءِ المرتقب! كنتُ أُهمسُ لنفسي محاولًا تهدئةَ روعي:<br>
                 'إن مرّ هذا اليومُ بسلام، فستمرُّ بقيةُ الأيام...'<br>
                 ابتنَتْ وسنُ بحرصِ أُمٍّ شفيقة بعضَ الحلوى لأسرتي ولنفسِها، ثم امتطينا متنَ القطارِ المتجهِ نحو القاهرة. وطوالَ الطريق، كانت تراجعُ معي تفاصيلَ حياتي كما تراجعُ أُمٌّ حنونٌ دروسَ طفلِها في ليلةِ الامتحانِ الفاصلة."
             </h3>
         </div>
 
+        <!-- صور إضافية -->
+        <section data-aos="fade-up">
+            <div class="characters-grid">
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="A.jpg" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="B.jpg" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+                <div class="character-card" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="D.jpg" alt="مشهد من الرواية" class="character-img zoomable-img">
+                </div>
+            </div>
+        </section>
+
         <!-- صندوق الشراء والطلب الرئيسي -->
-        <section id="buy">
-            <div class="checkout-box">
+        <section id="buy" data-aos="fade-up">
+            <div class="checkout-box" data-aos="zoom-in">
                 <h3>جاهز لخوض هذه التجربة الأدبية؟</h3>
                 <p>لا تفوت فرصة اقتناء نسختك الخاصة اليوم والبدء بالقراءة فوراً.</p>
                 
@@ -486,12 +589,12 @@
                 </div>
             </div>
 
-            <div class="checkout-box">
+            <div class="checkout-box" data-aos="zoom-in">
                 <h3>لا تفوت فرصة اقتناء نسختك الخاصة اليوم والبدء بالقراءة فوراً</h3>
                 <div class="actions-flex" style="margin-top: 20px;">
                     <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-primary">🛒 اطلب الرواية الآن</a>
                     <a href="mailto:montasser.elkilaany@gmail.com" class="btn btn-outline">✉️ التواصل بريدياً</a>
-                    <span class="btn btn-outline" style="cursor: default;">✍️ تأليف الكيلاني</span>
+                    <span class="btn btn-outline" style="cursor: default;">Email : montasser.elkilaany@gmail.com</span>
                 </div>
             </div>
         </section>
@@ -502,5 +605,58 @@
         <p>جميع الحقوق محفوظة © 2026 | الصفحة الرسمية للرواية - تأليف الكيلاني</p>
     </footer>
 
+    <!-- نافذة التكبير (Lightbox Modal) -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" src="" alt="صورة مكبرة">
+    </div>
+
+    <!-- سكربت AOS لتفعيل الحركات عند التمرير -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // تهيئة حركات AOS عند التمرير
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true,
+            offset: 120
+        });
+
+        // سكربت تكبير الصور عند النقر (Lightbox Script)
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImage');
+        const closeBtn = document.getElementById('lightboxClose');
+        const zoomableImages = document.querySelectorAll('.zoomable-img');
+
+        // إضافة حدث النقر لكل الصور القابلة للتكبير
+        zoomableImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('show');
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+
+        // إغلاق النافذة عند الضغط على زر الإغلاق X
+        closeBtn.addEventListener('click', closeModal);
+
+        // إغلاق النافذة عند الضغط على أجزاء الشاشة المعتمة
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // إغلاق النافذة عند الضغط على زر Esc
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('show');
+        }
+    </script>
 </body>
 </html>
