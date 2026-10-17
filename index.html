@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الرسمية للرواية</title>
+    <title>الصفحة الرسمية للرواية - تأليف الكيلاني</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,21 +16,24 @@
             --danger-bg: #7f1d1d;
             --success-bg: #065f46;
         }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         body {
-            font-family:'Amiri', Monotype Koufi;
+            font-family: 'Tajawal', 'Amiri', serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.8;
         }
 
-        h1, h2, h3, .quote-text {
+        h1, h2, h3, .quote-box p {
             font-family: 'Amiri', serif;
         }
+
         /* شريط العرض العلوي */
         .top-banner {
             background: linear-gradient(90deg, #b45309, #d97706, #b45309);
@@ -46,17 +49,20 @@
             gap: 10px;
             flex-wrap: wrap;
         }
+
         .top-banner span {
             background-color: rgba(0,0,0,0.2);
             padding: 2px 8px;
             border-radius: 4px;
         }
+
         /* قسم المقدمة (Hero) */
         .hero-section {
             padding: 60px 20px;
             background: radial-gradient(circle at center, #1e1b2e 0%, var(--bg-color) 80%);
             border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
+
         .hero-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -66,10 +72,12 @@
             gap: 40px;
             flex-wrap: wrap;
         }
+
         .hero-content {
             flex: 1;
             min-width: 300px;
         }
+
         .badge {
             display: inline-block;
             background: rgba(212, 175, 55, 0.1);
@@ -79,26 +87,32 @@
             font-size: 0.95rem;
             margin-bottom: 20px;
             border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 700;
         }
+
         .hero-content h1 {
-            font-size: 3.2rem;
+            font-size: 3rem;
             color: var(--accent-gold);
             margin-bottom: 15px;
             line-height: 1.3;
         }
+
         .hero-content h1 span {
             color: #fff;
             border-bottom: 3px solid var(--accent-gold);
         }
+
         .hero-content p {
             font-size: 1.2rem;
             color: var(--text-secondary);
             margin-bottom: 25px;
         }
+
         .hero-features {
             list-style: none;
             margin-bottom: 30px;
         }
+
         .hero-features li {
             font-size: 1.05rem;
             margin-bottom: 10px;
@@ -106,18 +120,23 @@
             align-items: center;
             gap: 10px;
         }
+
         .hero-features li span {
             color: var(--accent-gold);
             font-weight: bold;
         }
+
         .hero-image-box {
             flex: 1;
             text-align: center;
             min-width: 280px;
         }
+
         .book-cover {
             width: 280px;
-            height: 410px;
+            max-width: 100%;
+            height: auto;
+            max-height: 420px;
             object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.8);
@@ -125,91 +144,108 @@
             transform: perspective(1000px) rotateY(-5deg);
             transition: transform 0.4s ease;
         }
+
         .book-cover:hover {
-            transform: perspective(1000px) rotateY(30deg);
+            transform: perspective(1000px) rotateY(0deg);
         }
+
         /* الأزرار */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 14px 35px;
+            padding: 12px 28px;
             font-weight: bold;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             text-decoration: none;
             border-radius: 35px;
             transition: all 0.3s ease;
             cursor: pointer;
             text-align: center;
         }
+
         .btn-primary {
             background-color: var(--accent-gold);
             color: #0b0f17;
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
         }
+
         .btn-primary:hover {
             background-color: var(--accent-gold-hover);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
+
         .btn-outline {
             border: 2px solid var(--accent-gold);
             color: var(--accent-gold);
             background: transparent;
         }
+
         .btn-outline:hover {
             background-color: var(--accent-gold);
             color: #0b0f17;
         }
+
         /* الحاويات والأقسام العامة */
         .container {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 50px 20px;
         }
+
         section {
-            margin-bottom: 70px;
+            margin-bottom: 60px;
         }
+
         .section-header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
+
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: var(--accent-gold);
             margin-bottom: 10px;
         }
+
         /* اقتباس مميز */
         .quote-box {
             text-align: center;
-            margin: 40px 0;
-            padding: 35px;
+            margin: 30px 0;
+            padding: 30px;
             border-top: 1px solid rgba(212, 175, 55, 0.3);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             background: rgba(212, 175, 55, 0.02);
+            border-radius: 8px;
         }
+
         .quote-box p {
-            font-size: 1.9rem;
+            font-size: 1.35rem;
             color: var(--accent-gold);
             font-style: italic;
+            line-height: 1.9;
         }
+
         /* عن الرواية */
         .about-card {
             background-color: var(--card-bg);
-            padding: 40px;
+            padding: 35px;
             border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.05);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             text-align: justify;
             color: var(--text-secondary);
         }
-        /* بطاقات الشخصيات */
+
+        /* بطاقات الشخصيات والمشاهد */
         .characters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
+
         .character-card {
             background-color: var(--card-bg);
             padding: 20px;
@@ -218,6 +254,7 @@
             text-align: center;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
+
         .character-card:hover {
             transform: translateY(-5px);
             border-color: rgba(212, 175, 55, 0.4);
@@ -225,7 +262,7 @@
 
         .character-img {
             width: 100%;
-            height: 240px;
+            height: 250px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 15px;
@@ -233,36 +270,35 @@
         }
 
         .character-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: var(--accent-gold);
             margin-bottom: 10px;
         }
-        .character-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            text-align: right;
-        }
 
-        /* صندوق الشراء والتحميل النهائي */
+        /* صندوق الشراء */
         .checkout-box {
             background: linear-gradient(135deg, var(--card-bg), #1e1b2e);
-            padding: 50px 30px;
+            padding: 40px 25px;
             border-radius: 16px;
             text-align: center;
             border: 2px solid rgba(212, 175, 55, 0.4);
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
         }
+
         .checkout-box h3 {
-            font-size: 2.3rem;
+            font-size: 2rem;
             color: var(--accent-gold);
             margin-bottom: 15px;
+            line-height: 1.4;
         }
 
         .checkout-box p {
             color: var(--text-secondary);
-            font-size: 1.15rem;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
         }
+
         .price-tag {
             font-size: 2rem;
             color: #fff;
@@ -294,6 +330,12 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-container { text-align: center; }
+            .actions-flex { justify-content: center !important; }
+        }
     </style>
 </head>
 <body>
@@ -301,15 +343,15 @@
     <!-- شريط الإعلان العلوي -->
     <div class="top-banner">
         <span>🔥 عرض لفترة محدودة</span>
-     احصل على نسختك من الرواية واستمتع بخصم 50 %🔥
+        احصل على نسختك من الرواية واستمتع بخصم 50% 🔥
         <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-outline">🛒 اطلب الرواية الآن</a>
     </div>
-  
-   <!-- القسم الرئيسي (الهيدر) -->
+
+    <!-- القسم الرئيسي (الهيدر) -->
     <header class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
-               <div class="badge" style="font-weight:700">🔥 الرواية الأكثر تشويقاً وجاذبية</div>
+                <div class="badge">🔥 الرواية الأكثر تشويقاً وجاذبية</div>
 
                 <h1>عالم آخر ينتظرك… <span>اكتشف الحكاية</span></h1>
                 <p>رحلة أدبية فريدة تأخذك بين طيات الغموض والمشاعر العميقة، حيث لا تشابه الأحداث شيئاً مما عرفته من قبل.</p>
@@ -317,16 +359,16 @@
                 <ul class="hero-features">
                     <li><span>✓</span> أحداث مشوقة ومحبكة بدقة من الصفحة الأولى</li>
                     <li><span>✓</span> شخصيات مرسومة بعمق تلامس الروح</li>
-                    <li><span>✓</span> متاحة للتحميل الفوري كنسخة إلكترونية PDFأوEPUB </li>
+                    <li><span>✓</span> متاحة للتحميل الفوري كنسخة إلكترونية PDF أو EPUB</li>
                 </ul>
 
                 <div class="actions-flex" style="justify-content: flex-start;">
-<a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-outline">🛒 اطلب الرواية الآن</a>                    <a href="#sample" class="btn btn-outline">📖 اقرأ عينة مجانية</a>
+                    <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-primary">🛒 اطلب الرواية الآن</a>
+                    <a href="#about" class="btn btn-outline">📖 اقرأ عينة مجانية</a>
                 </div>
             </div>
 
             <div class="hero-image-box">
-                <book-cover.jpg.png>
                 <img src="book-cover.jpg.png" alt="غلاف الرواية" class="book-cover">
             </div>
         </div>
@@ -334,38 +376,25 @@
 
     <div class="container">
 
-        <!-- اقتباس عميق -->
+        <!-- اقتباسات مختارة -->
         <div class="quote-box">
-            <p>"حين تطأ عيناك السطور الأولى في هذه الرواية، لستَ مجرّد قارئٍ يعبر حكايةً عابرة، بل أنت غريبٌ يَلِجُ عتبات حياةٍ لم تحسب يومًا أنك ستعبر ممراتها... ويقين القول، أن خلف ظلال الكلمات واقعًا نابضًا؛ فمعظم هذه الأحداث قد جُبلت من طين الحقيقة، وما كانت يومًا محض أوهامٍ أو ضربًا من خيال."
-...</p>
+            <p>"حين تطأ عيناك السطور الأولى في هذه الرواية، لستَ مجرّد قارئٍ يعبر حكايةً عابرة، بل أنت غريبٌ يَلِجُ عتبات حياةٍ لم تحسب يومًا أنك ستعبر ممراتها... ويقين القول، أن خلف ظلال الكلمات واقعًا نابضًا؛ فمعظم هذه الأحداث قد جُبلت من طين الحقيقة، وما كانت يومًا محض أوهامٍ أو ضربًا من خيال."</p>
         </div>
-         <!-- اقتباس عميق -->
+
         <div class="quote-box">
-            <p>ماذا لو كانت هناك حياة أخرى تنتظرك في ظلّ شجرة؟
-
-لم يكن خالد يعلم أن بذرةً خضراء صغيرة ستقوده إلى عالمٍ موازٍ، حيث يصبح الماضي حاضرًا، وتتخذ الحياة شكلًا لم يكن يومًا من اختياراته.
-
-بين عالمين، وحياتين، وذكريات تتحدى المنطق، يخوض خالد رحلةً غامضة بحثًا عن الحقيقة، ليكتشف أن العبور إلى حياة أخرى قد يكون أسهل بكثير من العودة إلى حياته الأولى.
-
-رواية عن العوالم الموازية، وأسرار الوجود، والاختيارات التي قد تغيّر مصير الإنسان إلى الأبد.
-
-فهل يستطيع خالد العودة إلى حياته الحقيقية، أم أن لكل ظلٍّ حكايةً أخرى؟
-
- </p>
+            <p>ماذا لو كانت هناك حياة أخرى تنتظرك في ظلّ شجرة؟<br><br>
+            لم يكن خالد يعلم أن بذرةً خضراء صغيرة ستقوده إلى عالمٍ موازٍ، حيث يصبح الماضي حاضرًا، وتتخذ الحياة شكلًا لم يكن يومًا من اختياراته.<br><br>
+            بين عالمين، وحياتين، وذكريات تتحدى المنطق، يخوض خالد رحلةً غامضة بحثًا عن الحقيقة، ليكتشف أن العبور إلى حياة أخرى قد يكون أسهل بكثير من العودة إلى حياته الأولى.</p>
         </div>
-        
- <!-- اقتباس عميق -->
+
         <div class="quote-box">
-            <p>حغلبني النوم كفريسةٍ أضناها التعب، ثم استيقظتُ على بكاء طفلتي "ليلى". نظرتُ إليها فتوقفت أنفاسي؛ ليلى هنا طفلة في مهدها، بينما ليلى هناك عروسٌ متألقة! حملتُها وضممتُها إلى صدري أداعبها لساعتين حتى نامت. نظرتُ إليها وتمتمتُ 
-بشجن: "ماذا لو أبحرت سفينتي دون عودة؟ ما أصعب أن تكون آخرُ ما بيننا نظراتٍ تنتزع القلب انتزاعًا.." 
-</p>
+            <p>"غلبني النوم كفريسةٍ أضناها التعب، ثم استيقظتُ على بكاء طفلتي 'ليلى'. نظرتُ إليها فتوقفت أنفاسي؛ ليلى هنا طفلة في مهدها، بينما ليلى هناك عروسٌ متألقة! حملتُها وضممتُها إلى صدري أداعبها لساعتين حتى نامت. نظرتُ إليها وتمتمتُ بشجن: ماذا لو أبحرت سفينتي دون عودة؟ ما أصعب أن تكون آخرُ ما بيننا نظراتٍ تنتزع القلب انتزاعًا.."</p>
         </div>
-         <!-- اقتباس عميق -->
+
         <div class="quote-box">
-            <p>في لُجّة الطريق، التفتتْ إليّ وسن وقالت بنبرة يملؤها الوجل:
-أنت عارف يا خالد ده معناه إيه؟ معناه إن خالد القديم عمره دلوقتي مئة وثلاثة وثلاثون سنة على الأقل... يعني لا هو، ولا عياله، ولا أهله موجودين في الدنيا دي
-</p>
+            <p>"في لُجّة الطريق، التفتتْ إليّ وسن وقالت بنبرة يملؤها الوجل: أنت عارف يا خالد ده معناه إيه؟ معناه إن خالد القديم عمره دلوقتي مئة وثلاثة وثلاثون سنة على الأقل... يعني لا هو، ولا عياله، ولا أهله موجودين في الدنيا دي."</p>
         </div>
+
         <!-- عن الرواية -->
         <section id="about">
             <div class="section-header">
@@ -373,142 +402,4 @@
             </div>
             <div class="about-card">
                 <p>
-                    مَنْ ذا الذي يملك الجرأة ليزعم أن الله ـ تبارك وتعالى ـ قد انطوى خَلقهُ العظيم علينا وحدنا؟ مَنْ ذا الذي يحسب أنه سبحانه قد بسط هذا الوجود السرمدي، بكل ما يعج به من مجرات سحيقة، وكواكب سابحة، ونجومٍ توقد في ظلمات السحيق، ثم أوقف عجائب القدرة عند حدود جثماننا الترابي الضئيل؟ 
-إن من يرى الأمر على هذا النحو، لا يتطلع من سرادق الملكوت إلا بقدر ما تسمح به نَمَشاتُ عينيه الكليلتين، ولا يحيط من جلال الخالق إلا بقدر ما يستوعبه وعاء عقله المحدود؛ أما أن يتوهم أن هذه الشساعة المذهلة، بعوالمها وأسرارها التي لا تنتهي، قد أُبدعت ثم اختُزلت في وجودنا الضيق، فذاك لَعَمري أقرب إلى جهلٍ مطبق بحقيقة الإيجاد، منه إلى الفهم والتدبر! 
-.
-                </p>
-            </div>
-        </section>
-
-        <!-- أبطال الرواية -->
-        <section>
-            <div class="section-header">
-                <h2>شخصيات الرواية الرئيسية</h2>
-            </div>
-            <div class="characters-grid">
-                
-                <div class="character-card">
-                    <img src="khalid.jpg.png" alt="خالد" class="character-img">
-                    <h3>خالد</h3>
-                    <p></p>
-                </div>
-              
-                <div class="character-card">
-                    <img src="wasn.jpg.png" alt="وسن" class="character-img">
-                    <h3>وسن</h3>
-                    <p></p>
-                </div>
-
-                <div class="character-card">
-                    <img src="nawara.jpg.jpg" alt="نوارا" class="character-img">
-                    <h3>نوارا</h3>
-                    <p></p>
-                </div>
-
-            </div>
-                <section id="about">
-            <div class="section-header">
-                <h2>من الرواية</h2>
-            </div>
-            <div class="about-card">
-                <p>
-                    <div class="quote-box">
-            <p>                   لا بد أنك تدري أننا ضيوفُ محطة...
-ربما التقينا... وربما افترقنا... ربما في يومٍ ما...
-حين أغادرُ عكسَ اتجاه عقارب الساعة... وتغادرُ أنت معها... ستقول عني: إني نحرتُ الحياة بيدي، ولم أكن أجيدُ الابتسامَ في وجه الإصرار!
-
-نعم... أعترفُ بذلك، فهجراني لك أصبحَ ضمن هواجسي...
-ولأنك تنتشرُ من خلالي، فأنت تقرأني ككتابٍ مفتوح...
-ولأني لا أرغبُ في أن تهرب مني، سأعلنُ عليك القطيعة، وأنا أوقنُ أن نسيانك يستعصي عليّ... بل هو ضربٌ من ضروب المستحيل!
-
-أنت وحدك من فتحَ أبواب ذاتي... الواحدة تلو الأخرى... دون عناء...
-وبين يديك وحدك، ارتجفَ قلبي حدّ الذوبان...
-وبأناملك حُلّت رموزه، وتحطم غموضي؛ لتجعلني أعيش في أبياتٍ لا منتهية من الشعر...
-حتى أصبحَ تغلغلك في دواخلي أبرزَ ملامح وجودك في حياتي!
-
-روّضتَ أوهامي الجامحة... وكسرتَ سطوة أساطيري العاتية...
-وخلقتَ في كياني ما لم تستطع غاياتُ أرواح البشر كلها أن تستجمعه...
-وصوتك... آهٍ من صوتك! ذاك اللون الفضي المميز من لمسات الحنان في ذاكرتي المشروخة... أعانيه بإدمان...
-
-كان لا بد أن أغادر وأنا أدّعي الصمت، وأترك شهقاتي الخرساء تتساقط مني... علّك تلتقتها...
-ولعلنا في يومٍ ما نلتقي صدفة... وعندها أسترجعها منك...
-لتأخذ أنت كل ما منحتني إياه من أزمنةٍ لا تُنسى!
-
-</p>
-        </div>                  
-                    
-  <!-- أبطال الرواية -->
-        <section>
-            <div class="section-header">
-                <h2>مشاهد من الرواية </h2>
-            </div>
-            <div class="characters-grid">
-                
-                <div class="character-card">
-                    <img src="8.png" alt="" class="character-img">
-                    <h3></h3>
-                    <p></p>
-                </div>
-               
-
-                <div class="character-card">
-                    <img src="2.png" alt="" class="character-img">
-                    <h3></h3>
-                    <p></p>
-                </div>
-
-                <div class="character-card">
-                    <img src="1.png" alt="" class="character-img">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                </section>
-
-               <!-- صندوق الشراء والطلب الاحترافي -->
-        <section id="buy">
-            <div class="checkout-box">
-                <h3>جاهز لخوض هذه التجربة الأدبية؟</h3>
-                <p>لا تفوت فرصة اقتناء نسختك الخاصة اليوم والبدء بالقراءة فوراً.</p>
-                
-                <div class="price-tag">
-                    <s>٤٠٠ جنيه</s> <span>٢٠٠ جنيه فقط</span>
-                </div>
-
-                <div class="actions-flex">
-                    <!-- استبدل رابط الـ # برابط ملف الـ PDF الخاص بالفصل الأول -->
-                   <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-outline">🛒 اطلب الرواية الآن</a>
-                    
-                    <!-- ا201032322931 -->
-                    <a href="https://wa.me/201032322931" target="_blank" class="btn btn-primary">💬 اطلب النسخة الآن عبر الواتساب</a>
-                </div>
-              </div>   
-            </div>
-            <div Class="checkout-box">
-                
-                
-                <h3>بقدرِ ما كانت تجرفُني الرغبةُ في إبصارِ وجهِ أسرتي بعد غيابِ عشرين عامًا، بقدرِ ما كان الرعبُ ينبضُ في عروقي من هذا اللقاءِ المرتقب! كنتُ أُهمسُ لنفسي محاولًا تهدئةَ روعي:
-"إن مرّ هذا اليومُ بسلام، فستمرُّ بقيةُ الأيام..."
-ابتنَتْ وسنُ بحرصِ أُمٍّ شفيقة بعضَ الحلوى لأسرتي ولنفسِها، ثم امتطينا متنَ القطارِ المتجهِ نحو القاهرة. وطوالَ الطريق، كانت تراجعُ معي تفاصيلَ حياتي كما تراجعُ أُمٌّ حنونٌ دروسَ طفلِها في ليلةِ الامتحانِ الفاصلة.
-</h3>
-
-      </div>
-            </div>
-                  
-               <div class="checkout-box">
-                    <h3> لا تفوت فرصة اقتناء نسختك الخاصة اليوم والبدء بالقراءة فوراً</h3>
-                   
- <a href="https://montasser.nzmly.com/l/nKnhFgUXFs" class="btn btn-outline">🛒 اطلب الرواية الآن</a>               <a href="#sample" class="btn btn-outline">Email:montasser.elkilaany@gmail.com</a>       <a href="#sample" class="btn btn-outline">تأليف الكيلانى</a>
-                              
-                    
-                </div>
-
-               
-                                </div>
-                     </div>
-
-    <footer>
-        <p>جميع الحقوق محفوظة © 2026 | الصفحة الرسمية للرواية</p>
-    </footer>         
-
-</body>
-</html>
+                    مَنْ ذا الذي يملك الجرأة ليزعم أن الله ـ تبارك
