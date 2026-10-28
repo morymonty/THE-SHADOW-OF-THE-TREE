@@ -55,6 +55,30 @@ src="https://www.facebook.com/tr?id=1496751929013094&ev=PageView&noscript=1"
 <meta name="google-site-verification" content="KraJnC3l137EZj-DqXU-pE8yMN9QDCS86Tnz_bhmwLg" />
     <!-- مكتبة التأثيرات عند التمرير AOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+ /* الزر في حالته الطبيعية */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 25px;
+  border-radius: 999px;
+  border: 2px solid #D4AF37;
+  background-color: transparent;
+  color: #000000;
+  font-weight: 900;
+  text-decoration: none;
+  
+  /* مهم جداً لجعل انتقال الحركة انسيابياً */
+  transition: all 0.3s ease-in-out; 
+}
+
+/* الحركة عند مرور الماوس (Hover) */
+.btn-outline:hover {
+  transform: translateY(-4px); /* يرتفع الزر للأعلى بمقدار 4 بكسل */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* ظهور ظل ناعم بالأسفل يعطي شعوراً بالعمق */
+  background-color: #D4AF37; /* يمتلئ الزر باللون الذهبي */
+  color: #ffffff; /* يتغير لون النص للأبيض */
+}
+
 
     <style>
         :root {
